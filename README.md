@@ -50,19 +50,17 @@ This document provides instructions on how to set up and run the task management
     REFRESH_EXPIRES_IN='7d'
 
     PORT=4000
-4. **Run database migrations:**
-   ```bash
-   npm run typeorm migration:run
-   # or
-   yarn typeorm migration:run
-   ```
+4. **Ensure MongoDB is running:**
+
+    If you're using a local MongoDB instance, make sure it's running. You can start it using the following command (depending on your installation method):
+    ```bash
+      mongod
+    ```
 
 ### Running the Application
 
 1. **Start the application:**
    ```bash
-   npm run start:dev
-   # or
    yarn start:dev
    ```
 
@@ -94,7 +92,7 @@ This document provides instructions on how to set up and run the task management
 
 ##### Login
 
-- **URL:** `/auth/login`
+- **URL:** `/auth/signin`
 - **Method:** `POST`
 - **Request Body:**
   ```json

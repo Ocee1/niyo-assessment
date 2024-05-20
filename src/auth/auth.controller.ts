@@ -10,7 +10,7 @@ export class AuthController {
         private authService: AuthService
     ) {}
 
-    @Post()
+    @Post('signup')
     @HttpCode(HttpStatus.CREATED)
     async signup (@Body() signupDto: CreateUserDto, @Res() res: Response): Promise<void> {
         const data = await this.authService.signUp(signupDto);
@@ -20,7 +20,7 @@ export class AuthController {
     @Post('signin')
     @HttpCode(HttpStatus.ACCEPTED)
     async signin(@Body() signinDto: SigninDto, @Res() res: Response): Promise<void> {
-        const { accessToken, refreshToken } = await this.authService.signin(signinDto);
+        const { accessToken, refreshToken } = await this.authService.signin(signinDto,);
         res.cookie('refreshToken', refreshToken, {
             httpOnly: true,
             secure: true,
